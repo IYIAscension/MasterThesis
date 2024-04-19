@@ -1,0 +1,18 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: MasterThesis
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Adam
+    family-names: Abdalla
+    email: adam.2001@live.nl
+    affiliation: University of Amsterdam
+repository-code: 'https://github.com/IYIAscension/MasterThesis'
+abstract: |-
+  This github page contains the code for the Master Thesis:
+   "Towards Dutch Long-form Coreference Resolution: a Dutch Seq2seq Transition-Based System"
