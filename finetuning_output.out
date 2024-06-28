@@ -1,0 +1,838 @@
+Requirement already satisfied: pip in /home/aabdalla/.local/lib/python3.11/site-packages (24.1.1)
+Requirement already satisfied: accelerate in /home/aabdalla/.local/lib/python3.11/site-packages (0.29.3)
+Requirement already satisfied: numpy>=1.17 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from accelerate) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (23.1)
+Requirement already satisfied: psutil in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (5.9.5)
+Requirement already satisfied: pyyaml in /sw/arch/RHEL8/EB_production/2023/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (6.0)
+Requirement already satisfied: torch>=1.10.0 in /sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from accelerate) (2.1.2)
+Requirement already satisfied: huggingface-hub in /home/aabdalla/.local/lib/python3.11/site-packages (from accelerate) (0.22.2)
+Requirement already satisfied: safetensors>=0.3.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from accelerate) (0.4.3)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (3.12.2)
+Requirement already satisfied: typing-extensions in /home/aabdalla/.local/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (4.11.0)
+Requirement already satisfied: sympy in /sw/arch/RHEL8/EB_production/2023/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (1.12)
+Requirement already satisfied: networkx in /sw/arch/RHEL8/EB_production/2023/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (3.1)
+Requirement already satisfied: jinja2 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (3.1.2)
+Requirement already satisfied: fsspec in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (2023.6.0)
+Requirement already satisfied: requests in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from huggingface-hub->accelerate) (2.31.0)
+Requirement already satisfied: tqdm>=4.42.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from huggingface-hub->accelerate) (4.66.2)
+Requirement already satisfied: MarkupSafe>=2.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch>=1.10.0->accelerate) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (2023.5.7)
+Requirement already satisfied: mpmath>=0.19 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch>=1.10.0->accelerate) (1.3.0)
+Requirement already satisfied: dynamo in /home/aabdalla/.local/lib/python3.11/site-packages (0.1.1)
+Requirement already satisfied: boto>=2.2.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from dynamo) (2.49.0)
+Requirement already satisfied: sentencepiece in /home/aabdalla/.local/lib/python3.11/site-packages (0.2.0)
+Requirement already satisfied: transformers in /home/aabdalla/.local/lib/python3.11/site-packages (4.40.1)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (3.12.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.19.3 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (0.22.2)
+Requirement already satisfied: numpy>=1.17 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from transformers) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (23.1)
+Requirement already satisfied: pyyaml>=5.1 in /sw/arch/RHEL8/EB_production/2023/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (6.0)
+Requirement already satisfied: regex!=2019.12.17 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2023.6.3)
+Requirement already satisfied: requests in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2.31.0)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (0.19.1)
+Requirement already satisfied: safetensors>=0.4.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (0.4.3)
+Requirement already satisfied: tqdm>=4.27 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (4.66.2)
+Requirement already satisfied: fsspec>=2023.5.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.19.3->transformers) (2023.6.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/aabdalla/.local/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.19.3->transformers) (4.11.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (2023.5.7)
+Requirement already satisfied: deepspeed in /home/aabdalla/.local/lib/python3.11/site-packages (0.14.2)
+Requirement already satisfied: hjson in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (3.1.0)
+Requirement already satisfied: ninja in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (1.11.1.1)
+Requirement already satisfied: numpy in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from deepspeed) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from deepspeed) (23.1)
+Requirement already satisfied: psutil in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from deepspeed) (5.9.5)
+Requirement already satisfied: py-cpuinfo in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (9.0.0)
+Requirement already satisfied: pydantic in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (2.7.1)
+Requirement already satisfied: pynvml in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (11.5.0)
+Requirement already satisfied: torch in /sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from deepspeed) (2.1.2)
+Requirement already satisfied: tqdm in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (4.66.2)
+Requirement already satisfied: annotated-types>=0.4.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from pydantic->deepspeed) (0.6.0)
+Requirement already satisfied: pydantic-core==2.18.2 in /home/aabdalla/.local/lib/python3.11/site-packages (from pydantic->deepspeed) (2.18.2)
+Requirement already satisfied: typing-extensions>=4.6.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from pydantic->deepspeed) (4.11.0)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch->deepspeed) (3.12.2)
+Requirement already satisfied: sympy in /sw/arch/RHEL8/EB_production/2023/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch->deepspeed) (1.12)
+Requirement already satisfied: networkx in /sw/arch/RHEL8/EB_production/2023/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch->deepspeed) (3.1)
+Requirement already satisfied: jinja2 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch->deepspeed) (3.1.2)
+Requirement already satisfied: fsspec in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch->deepspeed) (2023.6.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch->deepspeed) (2.1.3)
+Requirement already satisfied: mpmath>=0.19 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch->deepspeed) (1.3.0)
+Requirement already satisfied: datasets in /home/aabdalla/.local/lib/python3.11/site-packages (2.19.1)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from datasets) (3.12.2)
+Requirement already satisfied: numpy>=1.17 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from datasets) (1.25.1)
+Requirement already satisfied: pyarrow>=12.0.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (16.0.0)
+Requirement already satisfied: pyarrow-hotfix in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (0.6)
+Requirement already satisfied: dill<0.3.9,>=0.3.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (0.3.8)
+Requirement already satisfied: pandas in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from datasets) (2.0.3)
+Requirement already satisfied: requests>=2.19.0 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from datasets) (2.31.0)
+Requirement already satisfied: tqdm>=4.62.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (4.66.2)
+Requirement already satisfied: xxhash in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (3.4.1)
+Requirement already satisfied: multiprocess in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (0.70.16)
+Requirement already satisfied: fsspec<=2024.3.1,>=2023.1.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from fsspec[http]<=2024.3.1,>=2023.1.0->datasets) (2023.6.0)
+Requirement already satisfied: aiohttp in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (3.9.5)
+Requirement already satisfied: huggingface-hub>=0.21.2 in /home/aabdalla/.local/lib/python3.11/site-packages (from datasets) (0.22.2)
+Requirement already satisfied: packaging in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from datasets) (23.1)
+Requirement already satisfied: pyyaml>=5.1 in /sw/arch/RHEL8/EB_production/2023/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from datasets) (6.0)
+Requirement already satisfied: aiosignal>=1.1.2 in /home/aabdalla/.local/lib/python3.11/site-packages (from aiohttp->datasets) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from aiohttp->datasets) (23.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from aiohttp->datasets) (1.4.1)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/aabdalla/.local/lib/python3.11/site-packages (from aiohttp->datasets) (6.0.5)
+Requirement already satisfied: yarl<2.0,>=1.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from aiohttp->datasets) (1.9.4)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/aabdalla/.local/lib/python3.11/site-packages (from huggingface-hub>=0.21.2->datasets) (4.11.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests>=2.19.0->datasets) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests>=2.19.0->datasets) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests>=2.19.0->datasets) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests>=2.19.0->datasets) (2023.5.7)
+Requirement already satisfied: python-dateutil>=2.8.2 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pandas->datasets) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pandas->datasets) (2023.3)
+Requirement already satisfied: tzdata>=2022.1 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from pandas->datasets) (2023.3)
+Requirement already satisfied: six>=1.5 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.16.0)
+Requirement already satisfied: torchmetrics in /home/aabdalla/.local/lib/python3.11/site-packages (1.4.0)
+Requirement already satisfied: numpy>1.20.0 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from torchmetrics) (1.25.1)
+Requirement already satisfied: packaging>17.1 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torchmetrics) (23.1)
+Requirement already satisfied: torch>=1.10.0 in /sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from torchmetrics) (2.1.2)
+Requirement already satisfied: lightning-utilities>=0.8.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from torchmetrics) (0.11.2)
+Requirement already satisfied: pretty-errors==1.2.25 in /home/aabdalla/.local/lib/python3.11/site-packages (from torchmetrics) (1.2.25)
+Requirement already satisfied: colorama in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from pretty-errors==1.2.25->torchmetrics) (0.4.6)
+Requirement already satisfied: setuptools in /sw/arch/RHEL8/EB_production/2023/software/Python/3.11.3-GCCcore-12.3.0/lib/python3.11/site-packages (from lightning-utilities>=0.8.0->torchmetrics) (67.7.2)
+Requirement already satisfied: typing-extensions in /home/aabdalla/.local/lib/python3.11/site-packages (from lightning-utilities>=0.8.0->torchmetrics) (4.11.0)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->torchmetrics) (3.12.2)
+Requirement already satisfied: sympy in /sw/arch/RHEL8/EB_production/2023/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch>=1.10.0->torchmetrics) (1.12)
+Requirement already satisfied: networkx in /sw/arch/RHEL8/EB_production/2023/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch>=1.10.0->torchmetrics) (3.1)
+Requirement already satisfied: jinja2 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->torchmetrics) (3.1.2)
+Requirement already satisfied: fsspec in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->torchmetrics) (2023.6.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch>=1.10.0->torchmetrics) (2.1.3)
+Requirement already satisfied: mpmath>=0.19 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch>=1.10.0->torchmetrics) (1.3.0)
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+
+
+
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+[2024-06-28 00:29:40,593] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,628] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,634] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,640] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,646] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,659] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,664] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,677] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,913] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,942] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,951] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:40,964] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,568] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,583] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,590] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,591] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,882] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,917] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,944] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,946] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,980] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:41,996] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,004] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,007] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[2024-06-28 00:29:42,119] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,139] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,140] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,151] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[2024-06-28 00:29:42,388] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[2024-06-28 00:29:42,411] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,421] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 00:29:42,421] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Downloading data:   0%|          | 0/23 [00:00<?, ?files/s]Downloading data: 100%|██████████| 23/23 [00:00<00:00, 235865.51files/s]
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 4549 examples [00:00, 39654.43 examples/s]Generating train split: 6803 examples [00:00, 40220.92 examples/s]
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 102 examples [00:00, 9995.07 examples/s]
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 614.85 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 616.21 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 605.17 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 611.67 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 619.40 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 616.32 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 617.13 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 608.30 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 615.84 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 614.56 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 613.62 examples/s]Map:  44%|████▍ Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 615.73 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 613.02 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 612.74 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 614.51 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 617.60 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 618.22 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:0Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 614.80 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 611.51 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 613.29 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 609.40 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 617.16 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 615.76 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:0Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 613.42 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 617.93 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 615.92 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 613.73 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 615.58 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 620.32 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:0Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 602.55 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 613.00 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 615.82 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 616.42 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 620.73 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 616.99 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:0Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 608.96 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 606.18 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 612.25 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 615.05 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 615.95 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 612.66 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:0Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 612.25 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 608.87 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 616.71 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 611.96 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 615.16 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 614.05 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:0Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:   0%|          | 0/6803 [00:00<?, ? examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 611.01 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 615.42 examples/s]Map:  15%|█▍        | 1000/6803 [00:01<00:09, 606.32 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 617.61 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 614.65 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 607.96 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 617.48 examples/s]Map:  44%|████▍7, 615.98 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 609.57 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 614.05 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 616.11 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 614.79 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 609.88 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 611.87 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 614.28 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 611.48 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 608.14 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 617.26 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 613.39 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 612.90 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 610.43 examples/s]7, 615.81 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 612.94 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 614.37 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 614.45 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 613.52 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 610.55 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 612.27 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 611.23 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 612.31 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 608.86 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 615.54 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 613.23 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 614.17 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 611.10 examples/s]7, 617.99 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 616.62 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 609.08 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 616.25 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 615.20 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 612.60 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 615.52 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 609.40 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 611.67 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 611.09 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 616.55 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 611.49 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 614.14 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 613.23 examples/s]7, 614.25 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 618.89 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 615.49 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 610.82 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 615.88 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 609.94 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 615.19 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 609.20 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 612.21 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 606.70 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 617.06 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 611.66 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 614.05 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 608.38 examples/s]7, 620.42 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 606.88 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 617.55 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 617.24 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 613.38 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 605.78 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 615.38 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 614.72 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 610.67 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 604.30 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 617.43 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 616.93 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 612.10 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 606.92 examples/s]7, 618.53 examples/s]Map:  29%|██▉       | 2000/6803 [00:03<00:07, 615.63 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 611.97 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 610.85 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 617.13 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 612.14 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 610.86 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 610.09 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 612.34 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 610.95 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 611.96 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 612.46 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 613.81 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 612.52 examples/s]    | 3000/6803 [00:04<00:06, 605.45 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 614.10 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 612.76 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 613.32 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 603.89 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 616.73 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 614.54 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 614.85 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 605.63 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 622.74 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 620.75 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 620.94 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 612.21 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 622.45 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.41 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 620.95 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.57 examples/s]
+Map:   0%|          | 0/102 [00:00<?, ? examples/s]Map:   0%|          | 0/102 [00:00<?, ? examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 621.56 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.45 examples/s]
+Map:   0%|          | 0/102 [00:00<?, ? examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 611.22 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 608.13 examples/s]
+Map:   0%|          | 0/102 [00:00<?, ? examples/s]Map: 100%|██████████| 102/102 [00:00<00:00, 177.47 examples/s]Map: 100%|██████████| 102/102 [00:00<00:00, 176.79 examples/s]
+[2024-06-28 00:29:58,167] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:29:58,167] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Map: 100%|██████████| 102/102 [00:00<00:00, 177.45 examples/s]Map: 100%|██████████| 102/102 [00:00<00:00, 176.79 examples/s]
+[2024-06-28 00:29:58,177] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 102/102 [00:00<00:00, 175.67 examples/s]Map: 100%|██████████| 102/102 [00:00<00:00, 174.90 examples/s]
+[2024-06-28 00:29:58,241] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 102/102 [00:00<00:00, 173.99 examples/s]Map: 100%|██████████| 102/102 [00:00<00:00, 173.36 examples/s]
+[2024-06-28 00:29:58,386] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:29:58,882] [INFO] [comm.py:637:init_distributed] cdb=None
+Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 623.23 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.56 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.42 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 616.77 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 623.26 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 619.39 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.95 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 616.40 examples/s]
+[2024-06-28 00:29:59,993] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,021] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.67 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 615.97 examples/s]
+[2024-06-28 00:30:00,050] [INFO] [comm.py:637:init_distributed] cdb=None
+     | 3000/6803 [00:04<00:06, 613.50 examples/s]Map:  44%|████▍     | 3000/6803 [00:04<00:06, 604.71 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 615.40 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 611.70 examples/s]Map:  59%|█████▉    | 4000/6803 [00:06<00:04, 599.90 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 617.96 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:02, 614.06 examples/s]Map:  73%|███████▎  | 5000/6803 [00:08<00:03, 599.89 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 623.83 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.41 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 608.42 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 624.31 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.28 examples/s]
+Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 623.59 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 617.60 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 619.98 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 614.35 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 623.16 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 616.93 examples/s]
+Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 622.13 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.08 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 620.10 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.92 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 620.91 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.10 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 612.06 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 614.93 examples/s]
+[2024-06-28 00:30:00,138] [INFO] [comm.py:637:init_distributed] cdb=None
+Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 622.20 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 619.74 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.59 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 617.00 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 622.64 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.89 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 616.26 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 609.20 examples/s]
+[2024-06-28 00:30:00,164] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,170] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.31 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 614.17 examples/s]
+[2024-06-28 00:30:00,171] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,182] [INFO] [comm.py:637:init_distributed] cdb=None
+Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 623.62 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 623.21 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 616.91 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 612.41 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 624.05 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 622.51 examples/s]Map: 100%|██████████| 6803/6803 [00:10<00:00, 619.56 examples/s]
+[2024-06-28 00:30:00,185] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.17 examples/s]
+[2024-06-28 00:30:00,202] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,222] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,223] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 619.42 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.74 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 614.56 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 613.91 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.05 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.93 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 610.89 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 619.75 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.60 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 614.12 examples/s]
+[2024-06-28 00:30:00,261] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,262] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,272] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,291] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 613.98 examples/s]
+Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 617.87 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.19 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 620.26 examples/s]Map:  88%|████████▊ | 6000/6803 [00:09<00:01, 618.70 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 618.31 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.61 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 612.64 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 611.68 examples/s]
+[2024-06-28 00:30:00,327] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 616.63 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 612.79 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 608.32 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 609.72 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 611.01 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 620.31 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.21 examples/s]
+[2024-06-28 00:30:00,345] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,354] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 613.63 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 608.93 examples/s]
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 616.90 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 607.50 examples/s]
+[2024-06-28 00:30:00,358] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,369] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,370] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 617.58 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 615.03 examples/s]
+[2024-06-28 00:30:00,374] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,388] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,391] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:00,404] [INFO] [comm.py:637:init_distributed] cdb=None
+Map: 100%|██████████| 6803/6803 [00:11<00:00, 608.58 examples/s]Map: 100%|██████████| 6803/6803 [00:11<00:00, 604.83 examples/s]
+[2024-06-28 00:30:00,460] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 00:30:03,519] [INFO] [partition_parameters.py:345:__exit__] finished initializing model - num_params = 558, num_elems = 12.92B
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]/sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.04s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.04s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.04s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.15s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.19s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.22s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.22s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:37,  9.32s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.98s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.02s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.08s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.08s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.13s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.22s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.24s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:37,  9.34s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.96s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.00s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.07s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.04s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.10s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.05s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.21s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:37,  9.28s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.04s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.09s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.07s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:51, 10.27s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.22s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.24s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:37,  9.26s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.96s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.03s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.05s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.05s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.09s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.21s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.21s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:37,  9.26s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.98s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.02s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.10s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.09s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.06s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.09s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.22s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.25s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  9.00s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.03s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.07s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.05s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.11s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.22s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.24s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.21s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.24s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:26,  8.99s/it]Loading checkpoint shards:  67%|██████▋   | 4Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.12s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:50, 10.10s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:10<00:51, 10.23s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:14<01:12, 14.53s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.24s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:36,  9.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:18<00:37,  9.25s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:22<00:42, 10.72s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.00s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.02s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:27<00:27,  9.03s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:30<00:28,  9.39s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.05s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.35s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.51s/it]
+/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.51s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.51s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.00s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.52s/it]
+/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.35s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.04s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.54s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.06s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.55s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.05s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.55s/it]
+/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.35s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.06s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.55s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.04s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.55s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.06s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.55s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.06s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.55s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.05s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.56s/it]
+/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:39<00:18,  9.32s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.07s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.57s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.07s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.56s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.08s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.57s/it]
+/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.07s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.35s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.15s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.60s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.17s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.61s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.18s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.61s/it]
+/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:36<00:18,  9.08s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.35s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.37s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:43<00:08,  8.38s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.20s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.61s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.20s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.62s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.20s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.21s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.63s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.63s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  6.21s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.62s/it]
+Loading checkpoint shards:  83%|████████▎ | 5/6 [00:45<00:08,  8.26s/it]Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Loading checkpoint shards: 100%|██████████| 6/6 [00:47<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:47<00:00,  7.92s/it]
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Detected CUDA files, patching ldflags
+Emitting ninja build file /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121/fused_adam/build.ninja...
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.21565032005310059 seconds
+Time to load fused_adam op: 0.2071845531463623 seconds
+Time to load fused_adam op: 0.21565628051757812 seconds
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Loading extension module fused_adam...
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.21343064308166504 seconds
+Time to load fused_adam op: 0.21179556846618652 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.21431493759155273 seconds
+Time to load fused_adam op: 0.20777678489685059 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.21625471115112305 seconds
+Time to load fused_adam op: 0.2110908031463623 seconds
+Time to load fused_adam op: 0.21267151832580566 seconds
+Time to load fused_adam op: 0.2126929759979248 seconds
+Time to load fused_adam op: 0.2061176300048828 seconds
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.20619845390319824 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.20618414878845215 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.2064523696899414 seconds
+Time to load fused_adam op: 0.21329689025878906 secondsTime to load fused_adam op: 0.213303804397583 seconds
+
+Time to load fused_adam op: 0.20625877380371094 seconds
+Time to load fused_adam op: 0.2125546932220459 seconds
+Time to load fused_adam op: 0.21304607391357422 seconds
+Time to load fused_adam op: 0.21308064460754395 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.20612478256225586 seconds
+Time to load fused_adam op: 0.2123563289642334 seconds
+Time to load fused_adam op: 0.2123420238494873 secondsTime to load fused_adam op: 0.20833921432495117 seconds
+
+Time to load fused_adam op: 0.20665955543518066 seconds
+Time to load fused_adam op: 0.20609664916992188 seconds
+Time to load fused_adam op: 0.2062535285949707 seconds
+Time to load fused_adam op: 0.20623111724853516 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.20673298835754395 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.20792579650878906 seconds
+Using /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /gpfs/home1/aabdalla/.cache/torch_extensions/py311_cu121/fused_adam/build.ninja...
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.18095183372497559 seconds
+Parameter Offload: Total persistent parameters: 503808 in 124 params
+[2024-06-28 00:31:07,150] [WARNING] [stage3.py:2069:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+  0%|          | 0/426 [00:00<?, ?it/s]  0%|          | 1/426 [00:07<49:59,  7.06s/it]  0%|          | 2/426 [00:12<41:43,  5.91s/it]  1%|          | 3/426 [00:17<38:51,  5.51s/it]  1%|          | 4/426 [00:22<37:15,  5.30s/it]  1%|          | 5/426 [00:27<36:13,  5.16s/it]  1%|▏         | 6/426 [00:32<35:38,  5.09s/it]  2%|▏         | 7/426 [00:37<35:16,  5.05s/it]  2%|▏         | 8/426 [00:41<34:57,  5.02s/it]  2%|▏         | 9/426 [00:46<34:47,  5.01s/it]  2%|▏         | 10/426 [00:51<34:38,  5.00s/it]  3%|▎         | 11/426 [00:56<34:26,  4.98s/it]  3%|▎         | 12/426 [01:01<34:20,  4.98s/it]  3%|▎         | 13/426 [01:06<34:14,  4.98s/it]  3%|▎         | 14/426 [01:11<34:04,  4.96s/it]  4%|▎         | 15/426 [01:16<34:01,  4.97s/it]  4%|▍         | 16/426 [01:21<33:56,  4.97s/it]  4%|▍         | 17/426 [01:26<33:51,  4.97s/it]  4%|▍         | 18/426 [01:31<34:00,  5.00s/it]  4%|▍         | 19/426 [01:36<33:51,  4.99s/it]  5%|▍         | 20/426 [01:41<33:43,  4.98s/it]  5%|▍         | 21/426 [01:46<33:36,  4.98s/it]  5%|▌         | 22/426 [01:51<33:30,  4.98s/it]  5%|▌         | 23/426 [01:56<33:23,  4.97s/it]  6%|▌         | 24/426 [02:01<33:18,  4.97s/it]  6%|▌         | 25/426 [02:06<33:13,  4.97s/it]  6%|▌         | 26/426 [02:11<33:08,  4.97s/it]  6%|▋         | 27/426 [02:16<33:04,  4.97s/it]  7%|▋         | 28/426 [02:21<33:01,  4.98s/it]  7%|▋         | 29/426 [02:26<32:54,  4.97s/it]  7%|▋         | 30/426 [02:31<32:49,  4.97s/it]  7%|▋         | 31/426 [02:36<32:58,  5.01s/it]  8%|▊         | 32/426 [02:41<32:50,  5.00s/it]  8%|▊         | 33/426 [02:46<32:42,  4.99s/it]  8%|▊         | 34/426 [02:51<32:37,  4.99s/it]  8%|▊         | 35/426 [02:56<32:28,  4.98s/it]  8%|▊         | 36/426 [03:01<32:23,  4.98s/it]  9%|▊         | 37/426 [03:06<32:17,  4.98s/it]  9%|▉         | 38/426 [03:11<32:09,  4.97s/it]  9%|▉         | 39/426 [03:16<32:05,  4.98s/it]  9%|▉         | 40/426 [03:21<32:00,  4.98s/it] 10%|▉         | 41/426 [03:26<31:53,  4.97s/it] 10%|▉         | 42/426 [03:31<31:48,  4.97s/it] 10%|█         | 43/426 [03:36<31:44,  4.97s/it] 10%|█         | 44/426 [03:41<31:43,  4.98s/it] 11%|█         | 45/426 [03:46<31:37,  4.98s/it] 11%|█         | 46/426 [03:51<31:30,  4.98s/it] 11%|█         | 47/426 [03:56<31:22,  4.97s/it] 11%|█▏        | 48/426 [04:00<31:16,  4.96s/it] 12%|█▏        | 49/426 [04:05<31:12,  4.97s/it] 12%|█▏        | 50/426 [04:10<31:05,  4.96s/it] 12%|█▏        | 51/426 [04:15<31:00,  4.96s/it] 12%|█▏        | 52/426 [04:20<30:56,  4.96s/it] 12%|█▏        | 53/426 [04:25<30:49,  4.96s/it] 13%|█▎        | 54/426 [04:30<30:42,  4.95s/it] 13%|█▎        | 55/426 [04:35<30:40,  4.96s/it] 13%|█▎        | 56/426 [04:40<30:33,  4.95s/it] 13%|█▎        | 57/426 [04:45<30:30,  4.96s/it] 14%|█▎        | 58/426 [04:50<30:35,  4.99s/it] 14%|█▍        | 59/426 [04:55<30:25,  4.97s/it] 14%|█▍        | 60/426 [05:00<30:20,  4.97s/it] 14%|█▍        | 61/426 [05:05<30:14,  4.97s/it] 15%|█▍        | 62/426 [05:10<30:09,  4.97s/it] 15%|█▍        | 63/426 [05:15<30:04,  4.97s/it] 15%|█▌        | 64/426 [05:20<30:00,  4.97s/it] 15%|█▌        | 65/426 [05:25<29:55,  4.97s/it] 15%|█▌        | 66/426 [05:30<29:50,  4.97s/it] 16%|█▌        | 67/426 [05:35<29:46,  4.98s/it] 16%|█▌        | 68/426 [05:40<29:39,  4.97s/it] 16%|█▌        | 69/426 [05:45<29:34,  4.97s/it] 16%|█▋        | 70/426 [05:50<29:39,  5.00s/it] 17%|█▋        | 71/426 [05:55<29:51,  5.05s/it] 17%|█▋        | 72/426 [06:00<29:38,  5.02s/it] 17%|█▋        | 73/426 [06:05<29:31,  5.02s/it] 17%|█▋        | 74/426 [06:10<29:19,  5.00s/it] 18%|█▊        | 75/426 [06:15<29:10,  4.99s/it] 18%|█▊        | 76/426 [06:20<29:05,  4.99s/it] 18%|█▊        | 77/426 [06:25<28:56,  4.98s/it] 18%|█▊        | 78/426 [06:30<28:49,  4.97s/it] 19%|█▊        | 79/426 [06:35<28:46,  4.98s/it] 19%|█▉        | 80/426 [06:40<28:39,  4.97s/it] 19%|█▉        | 81/426 [06:45<28:33,  4.97s/it] 19%|█▉        | 82/426 [06:50<28:29,  4.97s/it] 19%|█▉        | 83/426 [06:55<28:27,  4.98s/it] 20%|█▉        | 84/426 [07:00<28:27,  4.99s/it] 20%|█▉        | 85/426 [07:05<28:18,  4.98s/it] 20%|██        | 86/426 [07:10<28:08,  4.97s/it] 20%|██        | 87/426 [07:15<28:04,  4.97s/it] 21%|██        | 88/426 [07:20<27:58,  4.97s/it] 21%|██        | 89/426 [07:25<27:53,  4.97s/it] 21%|██        | 90/426 [07:30<27:49,  4.97s/it] 21%|██▏       | 91/426 [07:34<27:44,  4.97s/it] 22%|██▏       | 92/426 [07:39<27:38,  4.97s/it] 22%|██▏       | 93/426 [07:44<27:31,  4.96s/it] 22%|██▏       | 94/426 [07:49<27:27,  4.96s/it] 22%|██▏       | 95/426 [07:54<27:20,  4.96s/it] 23%|██▎       | 96/426 [07:59<27:38,  5.03s/it] 23%|██▎       | 97/426 [08:04<27:28,  5.01s/it] 23%|██▎       | 98/426 [08:09<27:17,  4.99s/it] 23%|██▎       | 99/426 [08:14<27:09,  4.98s/it] 23%|██▎       | 100/426 [08:19<27:05,  4.99s/it] 24%|██▎       | 101/426 [08:24<26:56,  4.97s/it] 24%|██▍       | 102/426 [08:29<26:50,  4.97s/it] 24%|██▍       | 103/426 [08:34<26:47,  4.98s/it] 24%|██▍       | 104/426 [08:39<26:40,  4.97s/it] 25%|██▍       | 105/426 [08:44<26:36,  4.97s/it] 25%|██▍       | 106/426 [08:49<26:32,  4.98s/it] 25%|██▌       | 107/426 [08:54<26:23,  4.96s/it] 25%|██▌       | 108/426 [08:59<26:20,  4.97s/it] 26%|██▌       | 109/426 [09:04<26:23,  4.99s/it] 26%|██▌       | 110/426 [09:09<26:15,  4.99s/it] 26%|██▌       | 111/426 [09:14<26:10,  4.99s/it] 26%|██▋       | 112/426 [09:19<26:04,  4.98s/it] 27%|██▋       | 113/426 [09:24<25:57,  4.98s/it] 27%|██▋       | 114/426 [09:29<25:52,  4.98s/it] 27%|██▋       | 115/426 [09:34<25:46,  4.97s/it] 27%|██▋       | 116/426 [09:39<25:41,  4.97s/it] 27%|██▋       | 117/426 [09:44<25:35,  4.97s/it] 28%|██▊       | 118/426 [09:49<25:30,  4.97s/it] 28%|██▊       | 119/426 [09:54<25:25,  4.97s/it] 28%|██▊       | 120/426 [09:59<25:19,  4.97s/it] 28%|██▊       | 121/426 [10:04<25:14,  4.97s/it] 29%|██▊       | 122/426 [10:09<25:14,  4.98s/it] 29%|██▉       | 123/426 [10:14<25:05,  4.97s/it] 29%|██▉       | 124/426 [10:19<25:01,  4.97s/it] 29%|██▉       | 125/426 [10:24<24:54,  4.96s/it] 30%|██▉       | 126/426 [10:29<24:47,  4.96s/it] 30%|██▉       | 127/426 [10:34<24:44,  4.96s/it] 30%|███       | 128/426 [10:39<24:38,  4.96s/it] 30%|███       | 129/426 [10:43<24:33,  4.96s/it] 31%|███       | 130/426 [10:48<24:29,  4.97s/it] 31%|███       | 131/426 [10:53<24:23,  4.96s/it] 31%|███       | 132/426 [10:58<24:18,  4.96s/it] 31%|███       | 133/426 [11:03<24:13,  4.96s/it] 31%|███▏      | 134/426 [11:08<24:07,  4.96s/it] 32%|███▏      | 135/426 [11:13<24:04,  4.97s/it] 32%|███▏      | 136/426 [11:18<24:00,  4.97s/it] 32%|███▏      | 137/426 [11:23<23:54,  4.96s/it] 32%|███▏      | 138/426 [11:28<23:49,  4.96s/it] 33%|███▎      | 139/426 [11:33<23:45,  4.97s/it] 33%|███▎      | 140/426 [11:38<23:39,  4.96s/it] 33%|███▎      | 141/426 [11:43<23:34,  4.96s/it] 33%|███▎      | 142/426 [11:48<23:30,  4.97s/it] 34%|███▎      | 143/426 [11:53<23:25,  4.97s/it] 34%|███▍      | 144/426 [11:58<23:20,  4.96s/it] 34%|███▍      | 145/426 [12:03<23:16,  4.97s/it] 34%|███▍      | 146/426 [12:08<23:09,  4.96s/it] 35%|███▍      | 147/426 [12:13<23:05,  4.97s/it] 35%|███▍      | 148/426 [12:18<23:07,  4.99s/it] 35%|███▍      | 149/426 [12:23<23:01,  4.99s/it] 35%|███▌      | 150/426 [12:28<22:54,  4.98s/it] 35%|███▌      | 151/426 [12:33<22:50,  4.98s/it] 36%|███▌      | 152/426 [12:38<22:42,  4.97s/it] 36%|███▌      | 153/426 [12:43<22:37,  4.97s/it] 36%|███▌      | 154/426 [12:48<22:33,  4.98s/it] 36%|███▋      | 155/426 [12:53<22:27,  4.97s/it] 37%|███▋      | 156/426 [12:58<22:22,  4.97s/it] 37%|███▋      | 157/426 [13:03<22:18,  4.98s/it] 37%|███▋      | 158/426 [13:08<22:11,  4.97s/it] 37%|███▋      | 159/426 [13:13<22:05,  4.96s/it] 38%|███▊      | 160/426 [13:18<22:00,  4.96s/it] 38%|███▊      | 161/426 [13:23<21:56,  4.97s/it] 38%|███▊      | 162/426 [13:27<21:50,  4.97s/it] 38%|███▊      | 163/426 [13:32<21:45,  4.96s/it] 38%|███▊      | 164/426 [13:37<21:40,  4.96s/it] 39%|███▊      | 165/426 [13:42<21:35,  4.96s/it] 39%|███▉      | 166/426 [13:47<21:29,  4.96s/it] 39%|███▉      | 167/426 [13:52<21:24,  4.96s/it] 39%|███▉      | 168/426 [13:57<21:18,  4.96s/it] 40%|███▉      | 169/426 [14:02<21:15,  4.96s/it] 40%|███▉      | 170/426 [14:07<21:10,  4.96s/it] 40%|████      | 171/426 [14:12<21:04,  4.96s/it] 40%|████      | 172/426 [14:17<21:00,  4.96s/it] 41%|████      | 173/426 [14:22<20:54,  4.96s/it] 41%|████      | 174/426 [14:27<20:54,  4.98s/it] 41%|████      | 175/426 [14:32<20:49,  4.98s/it] 41%|████▏     | 176/426 [14:37<20:41,  4.97s/it] 42%|████▏     | 177/426 [14:42<20:36,  4.96s/it] 42%|████▏     | 178/426 [14:47<20:32,  4.97s/it] 42%|████▏     | 179/426 [14:52<20:27,  4.97s/it] 42%|████▏     | 180/426 [14:57<20:22,  4.97s/it] 42%|████▏     | 181/426 [15:02<20:17,  4.97s/it] 43%|████▎     | 182/426 [15:07<20:11,  4.96s/it] 43%|████▎     | 183/426 [15:12<20:04,  4.96s/it] 43%|████▎     | 184/426 [15:17<19:59,  4.95s/it] 43%|████▎     | 185/426 [15:22<19:53,  4.95s/it] 44%|████▎     | 186/426 [15:27<19:49,  4.96s/it] 44%|████▍     | 187/426 [15:32<19:50,  4.98s/it] 44%|████▍     | 188/426 [15:37<19:43,  4.97s/it] 44%|████▍     | 189/426 [15:42<19:37,  4.97s/it] 45%|████▍     | 190/426 [15:46<19:32,  4.97s/it] 45%|████▍     | 191/426 [15:51<19:27,  4.97s/it] 45%|████▌     | 192/426 [15:56<19:21,  4.96s/it] 45%|████▌     | 193/426 [16:01<19:17,  4.97s/it] 46%|████▌     | 194/426 [16:06<19:12,  4.97s/it] 46%|████▌     | 195/426 [16:11<19:05,  4.96s/it] 46%|████▌     | 196/426 [16:16<19:01,  4.96s/it] 46%|████▌     | 197/426 [16:21<18:55,  4.96s/it] 46%|████▋     | 198/426 [16:26<18:49,  4.95s/it] 47%|████▋     | 199/426 [16:31<18:45,  4.96s/it] 47%|████▋     | 200/426 [16:36<18:40,  4.96s/it] 47%|████▋     | 201/426 [16:41<18:35,  4.96s/it] 47%|████▋     | 202/426 [16:46<18:31,  4.96s/it] 48%|████▊     | 203/426 [16:51<18:24,  4.95s/it] 48%|████▊     | 204/426 [16:56<18:19,  4.95s/it] 48%|████▊     | 205/426 [17:01<18:15,  4.96s/it] 48%|████▊     | 206/426 [17:06<18:08,  4.95s/it] 49%|████▊     | 207/426 [17:11<18:04,  4.95s/it] 49%|████▉     | 208/426 [17:16<17:59,  4.95s/it] 49%|████▉     | 209/426 [17:21<17:54,  4.95s/it] 49%|████▉     | 210/426 [17:26<17:48,  4.95s/it] 50%|████▉     | 211/426 [17:31<17:44,  4.95s/it] 50%|████▉     | 212/426 [17:35<17:39,  4.95s/it] 50%|█████     | 213/426 [17:40<17:33,  4.95s/it] stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                                 
+{'eval_loss': 0.3713618218898773, 'eval_runtime': 1.9245, 'eval_samples_per_second': 53.0, 'eval_steps_per_second': 0.52, 'epoch': 1.0}
+                                     [A 50%|█████     | 213/426 [17:54<17:33,  4.95s/it]
+100%|██████████| 1/1 [00:00<00:00, 137.75it/s][A
+[2024-06-28 00:48:56,462] [WARNING] [stage3.py:2069:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+[2024-06-28 00:49:02,918] [WARNING] [stage3.py:2069:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+[2024-06-28 00:49:08,450] [WARNING] [stage3.py:2069:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+                                              [A 50%|█████     | 214/426 [18:01<34:00,  9.63s/it] 50%|█████     | 215/426 [18:07<30:30,  8.68s/it] 51%|█████     | 216/426 [18:13<27:03,  7.73s/it] 51%|█████     | 217/426 [18:18<24:17,  6.97s/it] 51%|█████     | 218/426 [18:23<22:09,  6.39s/it] 51%|█████▏    | 219/426 [18:28<20:35,  5.97s/it] 52%|█████▏    | 220/426 [18:33<19:27,  5.67s/it] 52%|█████▏    | 221/426 [18:38<18:38,  5.46s/it] 52%|█████▏    | 222/426 [18:43<18:03,  5.31s/it] 52%|█████▏    | 223/426 [18:48<17:36,  5.20s/it] 53%|█████▎    | 224/426 [18:53<17:16,  5.13s/it] 53%|█████▎    | 225/426 [18:58<17:01,  5.08s/it] 53%|█████▎    | 226/426 [19:03<16:49,  5.05s/it] 53%|█████▎    | 227/426 [19:08<16:40,  5.03s/it] 54%|█████▎    | 228/426 [19:13<16:31,  5.01s/it] 54%|█████▍    | 229/426 [19:18<16:23,  4.99s/it] 54%|█████▍    | 230/426 [19:23<16:15,  4.98s/it] 54%|█████▍    | 231/426 [19:28<16:11,  4.98s/it] 54%|█████▍    | 232/426 [19:33<16:04,  4.97s/it] 55%|█████▍    | 233/426 [19:38<16:00,  4.98s/it] 55%|█████▍    | 234/426 [19:43<15:55,  4.98s/it] 55%|█████▌    | 235/426 [19:48<15:48,  4.97s/it] 55%|█████▌    | 236/426 [19:53<15:43,  4.97s/it] 56%|█████▌    | 237/426 [19:58<15:37,  4.96s/it] 56%|█████▌    | 238/426 [20:02<15:31,  4.95s/it] 56%|█████▌    | 239/426 [20:08<15:31,  4.98s/it] 56%|█████▋    | 240/426 [20:13<15:27,  4.99s/it] 57%|█████▋    | 241/426 [20:17<15:20,  4.98s/it] 57%|█████▋    | 242/426 [20:22<15:15,  4.97s/it] 57%|█████▋    | 243/426 [20:27<15:09,  4.97s/it] 57%|█████▋    | 244/426 [20:32<15:03,  4.96s/it] 58%|█████▊    | 245/426 [20:37<14:57,  4.96s/it] 58%|█████▊    | 246/426 [20:42<14:52,  4.96s/it] 58%|█████▊    | 247/426 [20:47<14:46,  4.95s/it] 58%|█████▊    | 248/426 [20:52<14:40,  4.95s/it] 58%|█████▊    | 249/426 [20:57<14:36,  4.95s/it] 59%|█████▊    | 250/426 [21:02<14:30,  4.95s/it] 59%|█████▉    | 251/426 [21:07<14:25,  4.95s/it] 59%|█████▉    | 252/426 [21:12<14:24,  4.97s/it] 59%|█████▉    | 253/426 [21:17<14:18,  4.96s/it] 60%|█████▉    | 254/426 [21:22<14:12,  4.96s/it] 60%|█████▉    | 255/426 [21:27<14:08,  4.96s/it] 60%|██████    | 256/426 [21:32<14:02,  4.96s/it] 60%|██████    | 257/426 [21:37<13:58,  4.96s/it] 61%|██████    | 258/426 [21:42<13:53,  4.96s/it] 61%|██████    | 259/426 [21:47<13:48,  4.96s/it] 61%|██████    | 260/426 [21:52<13:43,  4.96s/it] 61%|██████▏   | 261/426 [21:57<13:39,  4.97s/it] 62%|██████▏   | 262/426 [22:02<13:33,  4.96s/it] 62%|██████▏   | 263/426 [22:07<13:28,  4.96s/it] 62%|██████▏   | 264/426 [22:12<13:23,  4.96s/it] 62%|██████▏   | 265/426 [22:17<13:22,  4.98s/it] 62%|██████▏   | 266/426 [22:22<13:16,  4.98s/it] 63%|██████▎   | 267/426 [22:26<13:11,  4.98s/it] 63%|██████▎   | 268/426 [22:31<13:05,  4.97s/it] 63%|██████▎   | 269/426 [22:36<13:00,  4.97s/it] 63%|██████▎   | 270/426 [22:41<12:55,  4.97s/it] 64%|██████▎   | 271/426 [22:46<12:50,  4.97s/it] 64%|██████▍   | 272/426 [22:51<12:44,  4.97s/it] 64%|██████▍   | 273/426 [22:56<12:39,  4.97s/it] 64%|██████▍   | 274/426 [23:01<12:34,  4.96s/it] 65%|██████▍   | 275/426 [23:06<12:28,  4.96s/it] 65%|██████▍   | 276/426 [23:11<12:24,  4.96s/it] 65%|██████▌   | 277/426 [23:16<12:18,  4.96s/it] 65%|██████▌   | 278/426 [23:21<12:16,  4.97s/it] 65%|██████▌   | 279/426 [23:26<12:10,  4.97s/it] 66%|██████▌   | 280/426 [23:31<12:04,  4.96s/it] 66%|██████▌   | 281/426 [23:36<11:59,  4.96s/it] 66%|██████▌   | 282/426 [23:41<11:54,  4.96s/it] 66%|██████▋   | 283/426 [23:46<11:47,  4.95s/it] 67%|██████▋   | 284/426 [23:51<11:43,  4.95s/it] 67%|██████▋   | 285/426 [23:56<11:39,  4.96s/it] 67%|██████▋   | 286/426 [24:01<11:33,  4.96s/it] 67%|██████▋   | 287/426 [24:06<11:29,  4.96s/it] 68%|██████▊   | 288/426 [24:11<11:24,  4.96s/it] 68%|██████▊   | 289/426 [24:16<11:19,  4.96s/it] 68%|██████▊   | 290/426 [24:21<11:14,  4.96s/it] 68%|██████▊   | 291/426 [24:26<11:11,  4.97s/it] 69%|██████▊   | 292/426 [24:31<11:04,  4.96s/it] 69%|██████▉   | 293/426 [24:35<10:59,  4.96s/it] 69%|██████▉   | 294/426 [24:40<10:54,  4.96s/it] 69%|██████▉   | 295/426 [24:45<10:49,  4.96s/it] 69%|██████▉   | 296/426 [24:50<10:44,  4.96s/it] 70%|██████▉   | 297/426 [24:55<10:40,  4.97s/it] 70%|██████▉   | 298/426 [25:00<10:35,  4.96s/it] 70%|███████   | 299/426 [25:05<10:30,  4.96s/it] 70%|███████   | 300/426 [25:10<10:25,  4.97s/it] 71%|███████   | 301/426 [25:15<10:19,  4.96s/it] 71%|███████   | 302/426 [25:20<10:14,  4.96s/it] 71%|███████   | 303/426 [25:25<10:10,  4.96s/it] 71%|███████▏  | 304/426 [25:30<10:05,  4.96s/it] 72%|███████▏  | 305/426 [25:35<10:00,  4.96s/it] 72%|███████▏  | 306/426 [25:40<09:56,  4.97s/it] 72%|███████▏  | 307/426 [25:45<09:50,  4.97s/it] 72%|███████▏  | 308/426 [25:50<09:46,  4.97s/it] 73%|███████▎  | 309/426 [25:55<09:41,  4.97s/it] 73%|███████▎  | 310/426 [26:00<09:35,  4.96s/it] 73%|███████▎  | 311/426 [26:05<09:30,  4.97s/it] 73%|███████▎  | 312/426 [26:10<09:26,  4.97s/it] 73%|███████▎  | 313/426 [26:15<09:21,  4.96s/it] 74%|███████▎  | 314/426 [26:20<09:15,  4.96s/it] 74%|███████▍  | 315/426 [26:25<09:10,  4.96s/it] 74%|███████▍  | 316/426 [26:30<09:05,  4.96s/it] 74%|███████▍  | 317/426 [26:35<09:01,  4.97s/it] 75%|███████▍  | 318/426 [26:40<08:57,  4.97s/it] 75%|███████▍  | 319/426 [26:45<08:51,  4.97s/it] 75%|███████▌  | 320/426 [26:50<08:46,  4.96s/it] 75%|███████▌  | 321/426 [26:54<08:41,  4.96s/it] 76%|███████▌  | 322/426 [26:59<08:35,  4.96s/it] 76%|███████▌  | 323/426 [27:04<08:30,  4.96s/it] 76%|███████▌  | 324/426 [27:09<08:25,  4.96s/it] 76%|███████▋  | 325/426 [27:14<08:20,  4.95s/it] 77%|███████▋  | 326/426 [27:19<08:15,  4.95s/it] 77%|███████▋  | 327/426 [27:24<08:10,  4.96s/it] 77%|███████▋  | 328/426 [27:29<08:05,  4.95s/it] 77%|███████▋  | 329/426 [27:34<08:00,  4.96s/it] 77%|███████▋  | 330/426 [27:39<07:58,  4.98s/it] 78%|███████▊  | 331/426 [27:44<07:52,  4.97s/it] 78%|███████▊  | 332/426 [27:49<07:47,  4.97s/it] 78%|███████▊  | 333/426 [27:54<07:41,  4.97s/it] 78%|███████▊  | 334/426 [27:59<07:36,  4.96s/it] 79%|███████▊  | 335/426 [28:04<07:31,  4.97s/it] 79%|███████▉  | 336/426 [28:09<07:26,  4.97s/it] 79%|███████▉  | 337/426 [28:14<07:22,  4.97s/it] 79%|███████▉  | 338/426 [28:19<07:17,  4.97s/it] 80%|███████▉  | 339/426 [28:24<07:12,  4.97s/it] 80%|███████▉  | 340/426 [28:29<07:07,  4.97s/it] 80%|████████  | 341/426 [28:34<07:02,  4.97s/it] 80%|████████  | 342/426 [28:39<06:57,  4.97s/it] 81%|████████  | 343/426 [28:44<06:53,  4.99s/it] 81%|████████  | 344/426 [28:49<06:48,  4.98s/it] 81%|████████  | 345/426 [28:54<06:43,  4.99s/it] 81%|████████  | 346/426 [28:59<06:38,  4.98s/it] 81%|████████▏ | 347/426 [29:04<06:32,  4.97s/it] 82%|████████▏ | 348/426 [29:09<06:28,  4.98s/it] 82%|████████▏ | 349/426 [29:14<06:22,  4.97s/it] 82%|████████▏ | 350/426 [29:19<06:17,  4.97s/it] 82%|████████▏ | 351/426 [29:24<06:12,  4.97s/it] 83%|████████▎ | 352/426 [29:28<06:07,  4.96s/it] 83%|████████▎ | 353/426 [29:33<06:02,  4.97s/it] 83%|████████▎ | 354/426 [29:38<05:57,  4.96s/it] 83%|████████▎ | 355/426 [29:43<05:52,  4.96s/it] 84%|████████▎ | 356/426 [29:48<05:48,  4.98s/it] 84%|████████▍ | 357/426 [29:53<05:43,  4.97s/it] 84%|████████▍ | 358/426 [29:58<05:37,  4.96s/it] 84%|████████▍ | 359/426 [30:03<05:32,  4.96s/it] 85%|████████▍ | 360/426 [30:08<05:27,  4.96s/it] 85%|████████▍ | 361/426 [30:13<05:22,  4.96s/it] 85%|████████▍ | 362/426 [30:18<05:17,  4.96s/it] 85%|████████▌ | 363/426 [30:23<05:12,  4.96s/it] 85%|████████▌ | 364/426 [30:28<05:07,  4.96s/it] 86%|████████▌ | 365/426 [30:33<05:02,  4.96s/it] 86%|████████▌ | 366/426 [30:38<04:57,  4.96s/it] 86%|████████▌ | 367/426 [30:43<04:52,  4.95s/it] 86%|████████▋ | 368/426 [30:48<04:47,  4.95s/it] 87%|████████▋ | 369/426 [30:53<04:42,  4.96s/it] 87%|████████▋ | 370/426 [30:58<04:37,  4.96s/it] 87%|████████▋ | 371/426 [31:03<04:32,  4.95s/it] 87%|████████▋ | 372/426 [31:08<04:27,  4.95s/it] 88%|████████▊ | 373/426 [31:13<04:22,  4.95s/it] 88%|████████▊ | 374/426 [31:18<04:17,  4.95s/it] 88%|████████▊ | 375/426 [31:23<04:13,  4.96s/it] 88%|████████▊ | 376/426 [31:28<04:07,  4.96s/it] 88%|████████▊ | 377/426 [31:32<04:03,  4.96s/it] 89%|████████▊ | 378/426 [31:37<03:58,  4.97s/it] 89%|████████▉ | 379/426 [31:42<03:53,  4.96s/it] 89%|████████▉ | 380/426 [31:47<03:48,  4.96s/it] 89%|████████▉ | 381/426 [31:52<03:43,  4.97s/it] 90%|████████▉ | 382/426 [31:57<03:38,  4.96s/it] 90%|████████▉ | 383/426 [32:02<03:33,  4.96s/it] 90%|█████████ | 384/426 [32:07<03:28,  4.96s/it] 90%|█████████ | 385/426 [32:12<03:23,  4.96s/it] 91%|█████████ | 386/426 [32:17<03:18,  4.96s/it] 91%|█████████ | 387/426 [32:22<03:13,  4.96s/it] 91%|█████████ | 388/426 [32:27<03:08,  4.96s/it] 91%|█████████▏| 389/426 [32:32<03:03,  4.96s/it] 92%|█████████▏| 390/426 [32:37<02:58,  4.97s/it] 92%|█████████▏| 391/426 [32:42<02:53,  4.97s/it] 92%|█████████▏| 392/426 [32:47<02:48,  4.96s/it] 92%|█████████▏| 393/426 [32:52<02:43,  4.97s/it] 92%|█████████▏| 394/426 [32:57<02:38,  4.96s/it] 93%|█████████▎| 395/426 [33:02<02:34,  4.98s/it] 93%|█████████▎| 396/426 [33:07<02:29,  4.98s/it] 93%|█████████▎| 397/426 [33:12<02:24,  4.97s/it] 93%|█████████▎| 398/426 [33:17<02:18,  4.96s/it] 94%|█████████▎| 399/426 [33:22<02:14,  4.96s/it] 94%|█████████▍| 400/426 [33:27<02:08,  4.96s/it] 94%|█████████▍| 401/426 [33:32<02:03,  4.96s/it] 94%|█████████▍| 402/426 [33:37<01:59,  4.96s/it] 95%|█████████▍| 403/426 [33:42<01:54,  4.96s/it] 95%|█████████▍| 404/426 [33:46<01:49,  4.96s/it] 95%|█████████▌| 405/426 [33:51<01:44,  4.96s/it] 95%|█████████▌| 406/426 [33:56<01:38,  4.95s/it] 96%|█████████▌| 407/426 [34:01<01:34,  4.95s/it] 96%|█████████▌| 408/426 [34:06<01:29,  4.97s/it] 96%|█████████▌| 409/426 [34:11<01:24,  4.97s/it] 96%|█████████▌| 410/426 [34:16<01:19,  4.96s/it] 96%|█████████▋| 411/426 [34:21<01:14,  4.96s/it] 97%|█████████▋| 412/426 [34:26<01:09,  4.95s/it] 97%|█████████▋| 413/426 [34:31<01:04,  4.96s/it] 97%|█████████▋| 414/426 [34:36<00:59,  4.96s/it] 97%|█████████▋| 415/426 [34:41<00:54,  4.96s/it] 98%|█████████▊| 416/426 [34:46<00:49,  4.96s/it] 98%|█████████▊| 417/426 [34:51<00:44,  4.97s/it] 98%|█████████▊| 418/426 [34:56<00:39,  4.96s/it] 98%|█████████▊| 419/426 [35:01<00:34,  4.96s/it] 99%|█████████▊| 420/426 [35:06<00:29,  4.97s/it] 99%|█████████▉| 421/426 [35:11<00:24,  4.99s/it] 99%|█████████▉| 422/426 [35:16<00:19,  4.98s/it] 99%|█████████▉| 423/426 [35:21<00:14,  4.98s/it]100%|█████████▉| 424/426 [35:26<00:09,  4.97s/it]100%|█████████▉| 425/426 [35:31<00:04,  4.97s/it]100%|██████████| 426/426 [35:36<00:00,  4.97s/it] stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+ stage3_gather_16bit_weights_on_model_save=false. Saving the full checkpoint instead, use zero_to_fp32.py to recover weights
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                                 
+{'eval_loss': 0.3827933371067047, 'eval_runtime': 1.9001, 'eval_samples_per_second': 53.681, 'eval_steps_per_second': 0.526, 'epoch': 2.0}
+                                     [A100%|██████████| 426/426 [35:55<00:00,  4.97s/it]
+100%|██████████| 1/1 [00:00<00:00,  6.49it/s][A
+{'train_runtime': 2155.7878, 'train_samples_per_second': 6.311, 'train_steps_per_second': 0.198, 'train_loss': 0.6538561610548709, 'epoch': 2.0}
+                                             [A                                                 100%|██████████| 426/426 [35:55<00:00,  4.97s/it]100%|██████████| 426/426 [35:55<00:00,  5.06s/it]
+Done.
+Done.
+Done.
+Done.Done.Done.
+
+
+Done.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.55it/s]
+Done.Done.Done.
+
+
+Done.
+Done.
+Done.Done.Done.
+
+
+Done.Done.
+
+Done.Done.
+
+Done.
+Done.Done.
+
+Done.
+Done.
+Done.Done.
+
+Done.
+Done.
+Done.
+Done.
+Done.
+Done.
+Exception ignored in atexit callback: <function matmul_ext_update_autotune_table at 0x151230df3c40>
+Traceback (most recent call last):
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 473, in matmul_ext_update_autotune_table
+    fp16_matmul._update_autotune_table()
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 450, in _update_autotune_table
+    TritonMatmul._update_autotune_table(__class__.__name__ + "_2d_kernel", __class__._2d_kernel)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 179, in _update_autotune_table
+    cache_manager.put(autotune_table)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 98, in put
+    os.rename(self.file_path + ".tmp", self.file_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle.tmp' -> '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle'
+Exception ignored in atexit callback: <function matmul_ext_update_autotune_table at 0x14fac4f1fc40>
+Traceback (most recent call last):
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 473, in matmul_ext_update_autotune_table
+    fp16_matmul._update_autotune_table()
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 450, in _update_autotune_table
+    TritonMatmul._update_autotune_table(__class__.__name__ + "_2d_kernel", __class__._2d_kernel)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 179, in _update_autotune_table
+    cache_manager.put(autotune_table)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 98, in put
+    os.rename(self.file_path + ".tmp", self.file_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle.tmp' -> '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle'
+Exception ignored in atexit callback: <function matmul_ext_update_autotune_table at 0x14668c293c40>
+Traceback (most recent call last):
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 473, in matmul_ext_update_autotune_table
+    fp16_matmul._update_autotune_table()
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 450, in _update_autotune_table
+    TritonMatmul._update_autotune_table(__class__.__name__ + "_2d_kernel", __class__._2d_kernel)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 179, in _update_autotune_table
+    cache_manager.put(autotune_table)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 98, in put
+    os.rename(self.file_path + ".tmp", self.file_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle.tmp' -> '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle'
+Exception ignored in atexit callback: <function matmul_ext_update_autotune_table at 0x150de8b4fc40>
+Traceback (most recent call last):
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 473, in matmul_ext_update_autotune_table
+    fp16_matmul._update_autotune_table()
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 450, in _update_autotune_table
+    TritonMatmul._update_autotune_table(__class__.__name__ + "_2d_kernel", __class__._2d_kernel)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 179, in _update_autotune_table
+    cache_manager.put(autotune_table)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 98, in put
+    os.rename(self.file_path + ".tmp", self.file_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle.tmp' -> '/home/aabdalla/.triton/autotune/Fp16Matmul_2d_kernel.pickle'
+Exception ignored in atexit callback: <function matmul_ext_update_autotune_table at 0x154b1069bc40>
+Traceback (most recent call last):
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 473, in matmul_ext_update_autotune_table
+    fp16_matmul._update_autotune_table()
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 451, in _update_autotune_table
+    TritonMatmul._update_autotune_table(__class__.__name__ + "_4d_kernel", __class__._4d_kernel)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 179, in _update_autotune_table
+    cache_manager.put(autotune_table)
+  File "/home/aabdalla/.local/lib/python3.11/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 98, in put
+    os.rename(self.file_path + ".tmp", self.file_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/aabdalla/.triton/autotune/Fp16Matmul_4d_kernel.pickle.tmp' -> '/home/aabdalla/.triton/autotune/Fp16Matmul_4d_kernel.pickle'
+[2024-06-28 01:07:05,316] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Processing zero checkpoint '/scratch-shared/tmp.4ro3b8m9ih/checkpoints_0/checkpoint-426/global_step426'
+Detected checkpoint of type zero stage ZeroStageEnum.weights, world_size: 32
+Parsing checkpoint created by deepspeed==0.14.2
+Reconstructed Trainable fp32 state dict with 558 params 12921057280 elements
+Saving fp32 state dict to /scratch-shared/tmp.4ro3b8m9ih/checkpoints_0/first_model.bin
+
+JOB STATISTICS
+==============
+Job ID: 6778652
+Cluster: snellius
+User/Group: aabdalla/aabdalla
+State: RUNNING
+Nodes: 8
+Cores per node: 72
+CPU Utilized: 1-09:39:14
+CPU Efficiency: 8.70% of 16-02:52:48 core-walltime
+Job Wall-clock time: 00:40:18
+Memory Utilized: 60.43 GB (estimated maximum)
+Memory Efficiency: 1.57% of 3.75 TB (480.00 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

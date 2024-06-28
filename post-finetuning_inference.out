@@ -1,0 +1,269 @@
+Requirement already satisfied: pip in /home/aabdalla/.local/lib/python3.11/site-packages (24.1.1)
+Requirement already satisfied: nltk in /home/aabdalla/.local/lib/python3.11/site-packages (3.8.1)
+Requirement already satisfied: click in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from nltk) (8.1.3)
+Requirement already satisfied: joblib in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from nltk) (1.2.0)
+Requirement already satisfied: regex>=2021.8.3 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from nltk) (2023.6.3)
+Requirement already satisfied: tqdm in /home/aabdalla/.local/lib/python3.11/site-packages (from nltk) (4.66.2)
+Requirement already satisfied: accelerate in /home/aabdalla/.local/lib/python3.11/site-packages (0.29.3)
+Requirement already satisfied: numpy>=1.17 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from accelerate) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (23.1)
+Requirement already satisfied: psutil in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (5.9.5)
+Requirement already satisfied: pyyaml in /sw/arch/RHEL8/EB_production/2023/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from accelerate) (6.0)
+Requirement already satisfied: torch>=1.10.0 in /sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from accelerate) (2.1.2)
+Requirement already satisfied: huggingface-hub in /home/aabdalla/.local/lib/python3.11/site-packages (from accelerate) (0.22.2)
+Requirement already satisfied: safetensors>=0.3.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from accelerate) (0.4.3)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (3.12.2)
+Requirement already satisfied: typing-extensions in /home/aabdalla/.local/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (4.11.0)
+Requirement already satisfied: sympy in /sw/arch/RHEL8/EB_production/2023/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (1.12)
+Requirement already satisfied: networkx in /sw/arch/RHEL8/EB_production/2023/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (3.1)
+Requirement already satisfied: jinja2 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (3.1.2)
+Requirement already satisfied: fsspec in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch>=1.10.0->accelerate) (2023.6.0)
+Requirement already satisfied: requests in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from huggingface-hub->accelerate) (2.31.0)
+Requirement already satisfied: tqdm>=4.42.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from huggingface-hub->accelerate) (4.66.2)
+Requirement already satisfied: MarkupSafe>=2.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch>=1.10.0->accelerate) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->huggingface-hub->accelerate) (2023.5.7)
+Requirement already satisfied: mpmath>=0.19 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch>=1.10.0->accelerate) (1.3.0)
+Requirement already satisfied: dynamo in /home/aabdalla/.local/lib/python3.11/site-packages (0.1.1)
+Requirement already satisfied: boto>=2.2.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from dynamo) (2.49.0)
+Requirement already satisfied: sentencepiece in /home/aabdalla/.local/lib/python3.11/site-packages (0.2.0)
+Requirement already satisfied: transformers in /home/aabdalla/.local/lib/python3.11/site-packages (4.40.1)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (3.12.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.19.3 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (0.22.2)
+Requirement already satisfied: numpy>=1.17 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from transformers) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (23.1)
+Requirement already satisfied: pyyaml>=5.1 in /sw/arch/RHEL8/EB_production/2023/software/PyYAML/6.0-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (6.0)
+Requirement already satisfied: regex!=2019.12.17 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2023.6.3)
+Requirement already satisfied: requests in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from transformers) (2.31.0)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (0.19.1)
+Requirement already satisfied: safetensors>=0.4.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (0.4.3)
+Requirement already satisfied: tqdm>=4.27 in /home/aabdalla/.local/lib/python3.11/site-packages (from transformers) (4.66.2)
+Requirement already satisfied: fsspec>=2023.5.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.19.3->transformers) (2023.6.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/aabdalla/.local/lib/python3.11/site-packages (from huggingface-hub<1.0,>=0.19.3->transformers) (4.11.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /sw/arch/RHEL8/EB_production/2023/software/poetry/1.5.1-GCCcore-12.3.0/lib/python3.11/site-packages (from requests->transformers) (2023.5.7)
+Requirement already satisfied: triton in /home/aabdalla/.local/lib/python3.11/site-packages (2.2.0)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from triton) (3.12.2)
+Requirement already satisfied: deepspeed in /home/aabdalla/.local/lib/python3.11/site-packages (0.14.2)
+Requirement already satisfied: hjson in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (3.1.0)
+Requirement already satisfied: ninja in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (1.11.1.1)
+Requirement already satisfied: numpy in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from deepspeed) (1.25.1)
+Requirement already satisfied: packaging>=20.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from deepspeed) (23.1)
+Requirement already satisfied: psutil in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from deepspeed) (5.9.5)
+Requirement already satisfied: py-cpuinfo in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (9.0.0)
+Requirement already satisfied: pydantic in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (2.7.1)
+Requirement already satisfied: pynvml in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (11.5.0)
+Requirement already satisfied: torch in /sw/arch/RHEL8/EB_production/2023/software/PyTorch/2.1.2-foss-2023a-CUDA-12.1.1/lib/python3.11/site-packages (from deepspeed) (2.1.2)
+Requirement already satisfied: tqdm in /home/aabdalla/.local/lib/python3.11/site-packages (from deepspeed) (4.66.2)
+Requirement already satisfied: annotated-types>=0.4.0 in /home/aabdalla/.local/lib/python3.11/site-packages (from pydantic->deepspeed) (0.6.0)
+Requirement already satisfied: pydantic-core==2.18.2 in /home/aabdalla/.local/lib/python3.11/site-packages (from pydantic->deepspeed) (2.18.2)
+Requirement already satisfied: typing-extensions>=4.6.1 in /home/aabdalla/.local/lib/python3.11/site-packages (from pydantic->deepspeed) (4.11.0)
+Requirement already satisfied: filelock in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch->deepspeed) (3.12.2)
+Requirement already satisfied: sympy in /sw/arch/RHEL8/EB_production/2023/software/sympy/1.12-gfbf-2023a/lib/python3.11/site-packages (from torch->deepspeed) (1.12)
+Requirement already satisfied: networkx in /sw/arch/RHEL8/EB_production/2023/software/networkx/3.1-gfbf-2023a/lib/python3.11/site-packages (from torch->deepspeed) (3.1)
+Requirement already satisfied: jinja2 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch->deepspeed) (3.1.2)
+Requirement already satisfied: fsspec in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from torch->deepspeed) (2023.6.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /sw/arch/RHEL8/EB_production/2023/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages (from jinja2->torch->deepspeed) (2.1.3)
+Requirement already satisfied: mpmath>=0.19 in /sw/arch/RHEL8/EB_production/2023/software/SciPy-bundle/2023.07-gfbf-2023a/lib/python3.11/site-packages (from sympy->torch->deepspeed) (1.3.0)
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+Could not import _export_to_torch_ir. Please make sure your PyTorch version is newer than 2.2.0.
+[2024-06-28 12:53:29,581] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-28 12:53:29,585] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.1
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[2024-06-28 12:53:31,505] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 12:53:31,508] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-28 12:53:31,508] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-06-28 12:54:52,189] [INFO] [partition_parameters.py:345:__exit__] finished initializing model - num_params = 558, num_elems = 12.92B
+Processing file:  [REDACTED]
+Processing file:  [REDACTED]
+Processing file:  /scratch-local/aabdalla.6790060/test_texts/Forsyth_Cobra.txt
+[2024-06-28 12:54:59,609] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.14.2, git-hash=unknown, git-branch=unknown
+[2024-06-28 12:54:59,628] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-06-28 12:54:59,632] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2024-06-28 12:54:59,753] [INFO] [utils.py:779:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2024-06-28 12:54:59,754] [INFO] [utils.py:780:see_memory_usage] MA 12.03 GB         Max_MA 16.8 GB         CA 23.66 GB         Max_CA 24 GB 
+[2024-06-28 12:54:59,754] [INFO] [utils.py:787:see_memory_usage] CPU Virtual Memory:  used = 131.22 GB, percent = 26.1%
+Parameter Offload: Total persistent parameters: 503808 in 124 params
+[2024-06-28 12:54:59,879] [INFO] [utils.py:779:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2024-06-28 12:54:59,879] [INFO] [utils.py:780:see_memory_usage] MA 12.03 GB         Max_MA 12.03 GB         CA 23.66 GB         Max_CA 24 GB 
+[2024-06-28 12:54:59,880] [INFO] [utils.py:787:see_memory_usage] CPU Virtual Memory:  used = 131.29 GB, percent = 26.1%
+[2024-06-28 12:54:59,881] [INFO] [config.py:996:print] DeepSpeedEngine configuration:
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   amp_enabled .................. False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   amp_params ................... False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   bfloat16_enabled ............. True
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   bfloat16_immediate_grad_update  False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   checkpoint_parallel_write_pipeline  False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   checkpoint_tag_validation_enabled  True
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   checkpoint_tag_validation_fail  False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x14ae2d9e3f90>
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   communication_data_type ...... None
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   compile_config ............... enabled=False backend='inductor' kwargs={}
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   curriculum_enabled_legacy .... False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   curriculum_params_legacy ..... False
+[2024-06-28 12:54:59,882] [INFO] [config.py:1000:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   data_efficiency_enabled ...... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   dataloader_drop_last ......... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   disable_allgather ............ False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   dump_state ................... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   dynamic_loss_scale_args ...... None
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_enabled ........... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_gas_boundary_resolution  1
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_layer_num ......... 0
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_max_iter .......... 100
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_stability ......... 1e-06
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_tol ............... 0.01
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   eigenvalue_verbose ........... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   elasticity_enabled ........... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   fp16_auto_cast ............... None
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   fp16_enabled ................. False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   fp16_master_weights_and_gradients  False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   global_rank .................. 0
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   grad_accum_dtype ............. None
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   gradient_accumulation_steps .. 4
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   gradient_clipping ............ 0.0
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   gradient_predivide_factor .... 1.0
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   graph_harvesting ............. False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   initial_dynamic_scale ........ 1
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   load_universal_checkpoint .... False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   loss_scale ................... 1.0
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   memory_breakdown ............. False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   mics_hierarchial_params_gather  False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   mics_shard_size .............. -1
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-06-28 12:54:59,883] [INFO] [config.py:1000:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   optimizer_legacy_fusion ...... False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   optimizer_name ............... None
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   optimizer_params ............. None
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   pld_enabled .................. False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   pld_params ................... False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   prescale_gradients ........... False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   scheduler_name ............... None
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   scheduler_params ............. None
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   seq_parallel_communication_data_type  torch.float32
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   sparse_attention ............. None
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   sparse_gradients_enabled ..... False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   steps_per_print .............. 2000
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   train_batch_size ............. 8
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   train_micro_batch_size_per_gpu  1
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   use_data_before_expert_parallel_  False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   use_node_local_storage ....... False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   wall_clock_breakdown ......... False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   weight_quantization_config ... None
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   world_size ................... 2
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   zero_allow_untested_optimizer  False
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=16777216 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=15099494 param_persistence_threshold=40960 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   zero_enabled ................. True
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   zero_force_ds_cpu_optimizer .. True
+[2024-06-28 12:54:59,884] [INFO] [config.py:1000:print]   zero_optimization_stage ...... 3
+[2024-06-28 12:54:59,884] [INFO] [config.py:986:print_user_config]   json = {
+    "fp16": {
+        "enabled": false
+    }, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "offload_param": {
+            "device": "none"
+        }, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true, 
+        "reduce_bucket_size": 1.677722e+07, 
+        "stage3_prefetch_bucket_size": 1.509949e+07, 
+        "stage3_param_persistence_threshold": 4.096000e+04
+    }, 
+    "steps_per_print": 2.000000e+03, 
+    "train_batch_size": 8, 
+    "train_micro_batch_size_per_gpu": 1
+}
+Processing file:  [REDACTED]
+Processing file:  [REDACTED]
+Processing documents: {'Forsyth_Cobra', [REDACTED]}
+Processing documents: {[REDACTED]}
+[THE MODEL INPUTS/OUTPUTS ARE PRINTED HERE IN THE FORMAT BELOW, BUT I REMOVED THEM SINCE THEY CONTAINED DATA I DO NOT OWN. THIS FILE HAD EMPTY STRING OUTPUTS]
+input batch: batch
+mt5 output: result
+
+JOB STATISTICS
+==============
+Job ID: 6790060
+Cluster: snellius
+User/Group: aabdalla/aabdalla
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 36
+CPU Utilized: 00:00:35
+CPU Efficiency: 0.45% of 02:09:36 core-walltime
+Job Wall-clock time: 00:03:36
+Memory Utilized: 99.19 GB
+Memory Efficiency: 41.33% of 240.00 GB
