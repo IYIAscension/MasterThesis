@@ -10,6 +10,7 @@
 module load 2023
 module load Python/3.11.3-GCCcore-12.3.0
 module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
+#Some packages may be missing here.
 pip install --user --upgrade pip
 pip install --user nltk
 pip install --user accelerate
