@@ -2,10 +2,10 @@
 #SBATCH -J mt5-LA-finetuning
 #SBATCH -t 0:20:00
 #SBATCH -p gpu
-#SBATCH --nodes=1
+#SBATCH --nodes=8
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=32
-#SBATCH --gpus=2
+#SBATCH --cpus-per-task=72
+#SBATCH --gpus=32
 
 module load 2023
 module load foss/2023a
@@ -35,7 +35,7 @@ mkdir $TMP_DIR/cache_aabdalla
 
 export HF_HOME=$TMP_DIR/cache_aabdalla
 
-srun --jobid $SLURM_JOBID bash -c 'python -m torch.distributed.run --nnodes=1 --nproc_per_node=2 --master_addr=$HOSTNAME --master_port=$MASTER_PORT --node_rank=$SLURM_PROCID $HOME/original/model_finetuner.py --train_d $TMP_DIR/train_examples --dev_d $TMP_DIR/dev_examples --cp_d $TMP_DIR/checkpoints_0'
+srun --jobid $SLURM_JOBID bash -c 'python -m torch.distributed.run --nnodes=8 --nproc_per_node=4 --master_addr=$HOSTNAME --master_port=$MASTER_PORT --node_rank=$SLURM_PROCID $HOME/original/model_finetuner.py --train_d $TMP_DIR/train_examples --dev_d $TMP_DIR/dev_examples --cp_d $TMP_DIR/checkpoints_0'
 
 rm -rf $TMP_DIR/cache_aabdalla
 newest_cp=$(ls -t -d "$TMP_DIR/checkpoints_0"/*/ | head -n 1)
