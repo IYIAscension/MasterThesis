@@ -2,9 +2,13 @@
 import os
 import glob
 import pandas as pd
+from tempfile import TemporaryDirectory
 from datasets import load_dataset
-from transformers import T5ForConditionalGeneration, T5Tokenizer, T5Config, Trainer, TrainingArguments
+from transformers import MT5ForConditionalGeneration, T5Tokenizer, MT5Config, Trainer, TrainingArguments
 from transformers.integrations import HfDeepSpeedConfig
+from peft import LoraConfig, TaskType, get_peft_model
+import deepspeed
+import torch
 import argparse
 import time
 
@@ -21,7 +25,7 @@ def main():
     train_input_dir = os.path.abspath(args.train_d).rstrip("/\\")
     dev_input_dir = os.path.abspath(args.dev_d).rstrip("/\\")
     checkpoint_dir = os.path.abspath(args.cp_d).rstrip("/\\")
-    model_name = "mt5-coref-pytorch/link-append-xxl"
+    model_name = "google/mt5-xxl"
 
     deepspeed_config = {
         "train_micro_batch_size_per_gpu": 1,
@@ -39,13 +43,7 @@ def main():
         "optimizer": {
             "type": "AdamW",
             "params": {
-                "lr": 1e-3,
-            },
-        },
-        "scheduler": {
-            "type": "WarmupLR",
-            "params": {
-                "warmup_num_steps": 100,
+                "lr": 2e-5,
             },
         },
         "activation_checkpointing": {
@@ -55,7 +53,6 @@ def main():
         "wall_clock_breakdown": False,
     }
 
-    # Avoids race condition errors
     def load_with_retry(files_path, retries=4, delay=5):
         for attempt in range(retries):
             try:
@@ -74,7 +71,7 @@ def main():
     train_dataset = load_with_retry(train_files)["train"]
     eval_dataset = load_with_retry(dev_files)["train"]
 
-    tokenizer = T5Tokenizer.from_pretrained(model_name, model_max_length=512)
+    tokenizer = T5Tokenizer.from_pretrained(model_name, model_max_length=2048)
 
     def preprocess_function(batch):
         inputs = [example for example in batch["input"]]
@@ -84,7 +81,7 @@ def main():
         model_inputs = tokenizer(
             inputs,
             return_tensors="pt",
-            max_length=512,
+            max_length=2048,
             truncation=True,
             padding="max_length"
         )
@@ -110,8 +107,8 @@ def main():
     training_args = TrainingArguments(
         output_dir=checkpoint_dir,
         overwrite_output_dir=True,
-        num_train_epochs=2,
-        learning_rate=1e-3,
+        num_train_epochs=1,
+        learning_rate=2e-5,
         warmup_steps=100,
         per_device_train_batch_size=1,
         per_device_eval_batch_size=4,
@@ -125,10 +122,31 @@ def main():
         fp16=False,
         bf16=True
     )
+    peft_config = LoraConfig(task_type=TaskType.SEQ_2_SEQ_LM, inference_mode=False, r=4)
 
     # Load model
-    model_config = T5Config.from_pretrained(model_name)
-    model = T5ForConditionalGeneration.from_pretrained(model_name, config=model_config)
+    def load_model_with_retry(model_name, retries=4, delay=5):
+        for attempt in range(retries):
+            try:
+                # Load the model configuration
+                model_config = MT5Config.from_pretrained(model_name)
+                # Load the model with the configuration
+                model = MT5ForConditionalGeneration.from_pretrained(model_name, config=model_config)
+                print(f"Model loaded successfully on attempt {attempt + 1}")
+                return model
+            except OSError as e:
+                print(f"Load attempt {attempt + 1} failed: {e}")
+                if attempt < retries - 1:
+                    print(f"Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                else:
+                    print(f"All {retries} attempts failed. Raising the exception.")
+                    raise e
+
+    model = load_model_with_retry(model_name)
+    model = get_peft_model(model, peft_config)
+#    if int(os.getenv("RANK", "0")) == 0:
+#        print(model)
 
     # Initialize Trainer
     trainer = Trainer(
@@ -140,7 +158,6 @@ def main():
 
     # Train and evaluate
     trainer.train()
-    trainer.evaluate()
     print("Done.")
 
 if __name__ == "__main__":
